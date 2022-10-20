@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="180dp"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_centerInParent="true"
+        android:layout_margin="8dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="16dp"
+        app:strokeColor="@color/cardview_dark_background"
+        app:strokeWidth="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/itemImageLayout"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" >
+
+                <ImageView
+                    android:id="@+id/itemImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    tools:srcCompat="@tools:sample/avatars"
+                    android:contentDescription="ItemImage" />
+
+                <LinearLayout
+                    android:id="@+id/outOfStockLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/out_of_stock_style"
+                    android:orientation="vertical"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:text="Out of Stock" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/brand_name_style"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true" >
+
+                    <TextView
+                        android:id="@+id/itemBrandTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="bottom"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:text="Brand Name Here" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/itemTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemImageLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="6dp"
+                android:inputType="textMultiLine"
+                android:maxLines="2"
+                android:text="This is an item name"
+                android:textAlignment="center"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemTitleTextView"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:text="₹999999/-" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
