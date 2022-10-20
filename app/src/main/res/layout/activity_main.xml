@@ -7,10 +7,6 @@
     android:background="@color/background_color"
     tools:context=".MainActivity" >
 
-    <include
-        android:id="@+id/app_bar_main"
-        layout="@layout/app_bar" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,9 +47,7 @@
         android:id="@+id/addItemLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/app_bar_main"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-22dp"
         android:background="#AB000000">
 
         <com.google.android.material.card.MaterialCardView
@@ -89,9 +83,9 @@
                     android:layout_height="180dp"
                     android:layout_below="@id/addItemHeading"
                     android:layout_centerHorizontal="true"
-                    app:strokeWidth="2dp"
+                    app:cardCornerRadius="32dp"
                     app:strokeColor="@color/black"
-                    app:cardCornerRadius="32dp">
+                    app:strokeWidth="2dp">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -265,5 +259,9 @@
         </com.google.android.material.card.MaterialCardView>
 
     </RelativeLayout>
+
+    <include
+        android:id="@+id/app_bar_main"
+        layout="@layout/app_bar" />
 
 </RelativeLayout>
