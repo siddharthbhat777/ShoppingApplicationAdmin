@@ -30,10 +30,9 @@
                     android:id="@+id/itemImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentTop="true"
-                    tools:srcCompat="@tools:sample/avatars"
-                    android:contentDescription="ItemImage" />
+                    android:layout_centerHorizontal="true"
+                    tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
                     android:id="@+id/outOfStockLayout"
