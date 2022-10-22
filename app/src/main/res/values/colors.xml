@@ -10,7 +10,10 @@
     <color name="background_color">#FADFDD</color>
     <color name="green">#4CAF50</color>
     <color name="dark_red">#AE1414</color>
+    <color name="light_red">#DD5E5E</color>
     <color name="gray">#BFBFBF</color>
     <color name="card_background">#E1E1E1</color>
     <color name="orange">#FF5722</color>
+    <color name="yellow">#FFC107</color>
+    <color name="light_yellow">#FFDC73</color>
 </resources>

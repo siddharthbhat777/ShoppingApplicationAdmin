@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/brand_name_style.xml" value="0.2265" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/detailed_item_image_gradient.xml" value="0.133" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/ic_delete.xml" value="0.133" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/ic_edit.xml" value="0.133" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/out_of_stock_style.xml" value="0.2265" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout-land/activity_item_details.xml" value="0.2625" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout-land/activity_main.xml" value="0.2625" />
