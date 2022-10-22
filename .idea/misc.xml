@@ -4,7 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/brand_name_style.xml" value="0.2265" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/detailed_item_image_gradient.xml" value="0.133" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/drawable/out_of_stock_style.xml" value="0.2265" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout-land/activity_item_details.xml" value="0.2625" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout-land/activity_main.xml" value="0.2625" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout-v23/activity_item_details.xml" value="0.27447916666666666" />
+        <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout/activity_item_details.xml" value="0.27447916666666666" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout/app_bar.xml" value="0.264" />
         <entry key="..\:/Android_Apps_By_Me/ShoppingApplicationAdmin/app/src/main/res/layout/single_item.xml" value="0.27447916666666666" />
