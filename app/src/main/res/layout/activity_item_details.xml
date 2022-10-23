@@ -7,12 +7,74 @@
     android:background="@color/background_color"
     tools:context=".ItemDetailsActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:foreground="@drawable/detailed_item_image_gradient"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/itemImageDetailImageView"
+            android:layout_width="400dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:foreground="@drawable/detailed_item_image_gradient_landscape"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9">
+
+            <TextView
+                android:id="@+id/itemTitleDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:text="This is title" />
+
+            <TextView
+                android:id="@+id/itemBrandDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemTitleDetailTextView"
+                android:layout_marginHorizontal="8dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/orange"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="Brand name" />
+
+            <TextView
+                android:id="@+id/itemPriceDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemBrandDetailTextView"
+                android:layout_marginHorizontal="8dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="₹99999/-" />
+
+            <TextView
+                android:id="@+id/itemDescriptionDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemPriceDetailTextView"
+                android:layout_marginHorizontal="8dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:text="This is a description of the item which is a multiline description" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
