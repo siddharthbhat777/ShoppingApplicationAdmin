@@ -2,6 +2,8 @@ package com.hobbyproject.shoppingapplicationadmin;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 binding.addItemLayout.setVisibility(View.VISIBLE);
                 binding.addItemButtonCard.setVisibility(View.INVISIBLE);
+                Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation);
+                binding.addItemLayout.startAnimation(scale);
             }
         });
 
@@ -45,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 binding.addItemLayout.setVisibility(View.INVISIBLE);
                 binding.addItemButtonCard.setVisibility(View.VISIBLE);
+                Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation_close);
+                binding.addItemLayout.startAnimation(scale);
             }
         });
 
@@ -61,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
         item.put("name", binding.itemTitleEditText.getText().toString().trim());
         item.put("brand", binding.itemBrandEditText.getText().toString().trim());
         item.put("price", binding.itemPriceEditText.getText().toString().trim());
+        item.put("stock", binding.itemStockEditText.getText().toString().trim());
         item.put("description", binding.itemDescriptionEditText.getText().toString().trim());
+        item.put("category", binding.itemCategoryEditText.getText().toString().trim());
 
         db.collection("items").add(item)
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -70,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
                         binding.itemTitleEditText.setText("");
                         binding.itemBrandEditText.setText("");
                         binding.itemPriceEditText.setText("");
+                        binding.itemStockEditText.setText("");
                         binding.itemDescriptionEditText.setText("");
+                        binding.itemCategoryEditText.setText("");
                         Toast.makeText(MainActivity.this, "Item inserted successfully!", Toast.LENGTH_SHORT).show();
                     }
                 });

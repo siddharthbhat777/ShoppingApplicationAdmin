@@ -43,23 +43,23 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <RelativeLayout
-        android:id="@+id/addItemLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:background="#AB000000">
-
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/addItemLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:layout_margin="16dp"
+            android:verticalScrollbarPosition="right"
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
+            android:layout_below="@+id/app_bar_main"
             app:strokeColor="@color/gray"
             app:strokeWidth="2dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -162,7 +162,30 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
                         android:hint="Enter Product Price"
-                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/itemStockCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/itemPriceCardView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="4dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="@color/gray"
+                    app:strokeWidth="1dp">
+
+                    <EditText
+                        android:id="@+id/itemStockEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:hint="Enter Product Stock"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -172,7 +195,7 @@
                     android:id="@+id/itemDescriptionCardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/itemPriceCardView"
+                    android:layout_below="@+id/itemStockCardView"
                     android:layout_centerHorizontal="true"
                     android:layout_marginHorizontal="8dp"
                     android:layout_marginTop="4dp"
@@ -193,10 +216,34 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/itemCategoryCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/itemDescriptionCardView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="4dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:strokeColor="@color/gray"
+                    app:strokeWidth="1dp">
+
+                    <EditText
+                        android:id="@+id/itemCategoryEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:hint="Enter Product Category"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/itemDescriptionCardView"
+                    android:layout_below="@+id/itemCategoryCardView"
                     android:layout_centerHorizontal="true"
                     android:orientation="horizontal">
 
@@ -255,10 +302,9 @@
                 </LinearLayout>
 
             </RelativeLayout>
+            </ScrollView>
 
         </com.google.android.material.card.MaterialCardView>
-
-    </RelativeLayout>
 
     <include
         android:id="@+id/app_bar_main"
