@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
@@ -18,12 +18,12 @@
         android:id="@+id/addItemButtonCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
         app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="64dp"
         app:cardElevation="8dp"
-        android:layout_margin="20dp"
         app:contentPaddingBottom="10dp"
         app:contentPaddingLeft="18dp"
         app:contentPaddingRight="18dp"
@@ -37,29 +37,29 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="+"
-            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/addItemLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="16dp"
-            android:verticalScrollbarPosition="right"
-            app:cardBackgroundColor="@color/card_background"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="8dp"
-            android:layout_below="@+id/app_bar_main"
-            app:strokeColor="@color/gray"
-            app:strokeWidth="2dp">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/addItemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar_main"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:verticalScrollbarPosition="right"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="2dp">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -302,9 +302,10 @@
                 </LinearLayout>
 
             </RelativeLayout>
-            </ScrollView>
 
-        </com.google.android.material.card.MaterialCardView>
+        </ScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <include
         android:id="@+id/app_bar_main"
