@@ -138,7 +138,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
                         android:hint="Enter Product Brand"
-                        android:inputType="number"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -163,6 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
                         android:hint="Enter Product Price"
+                        android:inputType="number"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
