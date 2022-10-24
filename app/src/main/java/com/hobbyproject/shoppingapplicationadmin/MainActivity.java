@@ -8,20 +8,28 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.hobbyproject.shoppingapplicationadmin.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseFirestore db;
     private ActivityMainBinding binding;
+    ArrayList<DataModalClass> itemsData;
+    ItemsDataAdapterClass adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,23 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         binding.addItemLayout.setVisibility(View.INVISIBLE);
+
+        binding.itemsDisplayRecyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+        itemsData = new ArrayList<>();
+        adapter = new ItemsDataAdapterClass(itemsData);
+        binding.itemsDisplayRecyclerView.setAdapter(adapter);
+        db.collection("items").get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                List<DocumentSnapshot> itemsList = queryDocumentSnapshots.getDocuments();
+                                for (DocumentSnapshot documentSnapshot : itemsList) {
+                                    DataModalClass dataModalClass = documentSnapshot.toObject(DataModalClass.class);
+                                    itemsData.add(dataModalClass);
+                                }
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
 
         binding.addItemButtonCard.setOnClickListener(new View.OnClickListener() {
             @Override
