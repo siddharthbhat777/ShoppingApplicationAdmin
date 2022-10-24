@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "942808040059",
+    "project_id": "shopifywebapplication",
+    "storage_bucket": "shopifywebapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942808040059:android:8482902c29da7534e4d8de",
+        "android_client_info": {
+          "package_name": "com.hobbyproject.shoppingapplicationadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942808040059-2fd6g7ipnemdrdorlkgp7nt5a16fk2di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAovmu0hlwP7ua96GcpFPIZqwWUgYjXspE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942808040059-2fd6g7ipnemdrdorlkgp7nt5a16fk2di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
