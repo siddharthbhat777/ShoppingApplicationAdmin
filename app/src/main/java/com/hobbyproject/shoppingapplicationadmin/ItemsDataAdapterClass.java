@@ -38,7 +38,7 @@ public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapter
         }
         holder.name.setText(itemsList.get(position).getName());
         holder.brand.setText(itemsList.get(position).getBrand());
-        holder.price.setText(itemsList.get(position).getPrice());
+        holder.price.setText("₹" + itemsList.get(position).getPrice() + "/-");
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
