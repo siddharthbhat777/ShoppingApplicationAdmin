@@ -54,11 +54,11 @@ public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapter
                 holder.view.getContext().startActivity(intent);
             }
         });
-        /*if (!itemsList.get(position).getStock().equals("0")) {
+        if (!itemsList.get(position).getStock().equals("0")) {
             holder.outOfStock.setVisibility(View.INVISIBLE);
         } else {
             holder.outOfStock.setVisibility(View.VISIBLE);
-        }*/
+        }
     }
 
     @Override
