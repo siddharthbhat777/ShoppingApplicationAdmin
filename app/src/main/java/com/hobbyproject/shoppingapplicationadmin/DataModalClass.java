@@ -1,17 +1,18 @@
 package com.hobbyproject.shoppingapplicationadmin;
 
 public class DataModalClass {
-    private String name, brand, price, stock, description, category;
+    private String name, brand, price, stock, description, category, image;
 
     public DataModalClass() {}
 
-    public DataModalClass(String name, String brand, String price, String stock, String description, String category) {
+    public DataModalClass(String name, String brand, String price, String stock, String description, String category, String image) {
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.stock = stock;
         this.description = description;
         this.category = category;
+        this.image = image;
     }
 
     public String getName() {
@@ -60,5 +61,13 @@ public class DataModalClass {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
