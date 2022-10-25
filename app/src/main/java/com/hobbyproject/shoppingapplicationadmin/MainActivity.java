@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -89,13 +90,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDataToDatabase() {
-        Map<String, String> item = new HashMap<>();
+        Map<String, Object> item = new HashMap<>();
         item.put("name", binding.itemTitleEditText.getText().toString().trim());
         item.put("brand", binding.itemBrandEditText.getText().toString().trim());
         item.put("price", binding.itemPriceEditText.getText().toString().trim());
         item.put("stock", binding.itemStockEditText.getText().toString().trim());
         item.put("description", binding.itemDescriptionEditText.getText().toString().trim());
         item.put("category", binding.itemCategoryEditText.getText().toString().trim());
+        item.put("date", FieldValue.serverTimestamp());
 
         db.collection("items").add(item)
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
