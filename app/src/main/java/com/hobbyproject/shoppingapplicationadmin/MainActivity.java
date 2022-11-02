@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                                 List<DocumentSnapshot> itemsList = queryDocumentSnapshots.getDocuments();
                                 for (DocumentSnapshot documentSnapshot : itemsList) {
                                     DataModalClass dataModalClass = documentSnapshot.toObject(DataModalClass.class);
+                                    dataModalClass.setId(documentSnapshot.getId());
                                     itemsData.add(dataModalClass);
                                 }
                                 adapter.notifyDataSetChanged();

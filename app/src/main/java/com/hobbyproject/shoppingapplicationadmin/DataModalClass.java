@@ -1,11 +1,13 @@
 package com.hobbyproject.shoppingapplicationadmin;
 
+import com.google.firebase.firestore.Exclude;
+
 public class DataModalClass {
-    private String name, brand, price, stock, description, category, image;
+    private String name, brand, price, stock, description, category, image, id;
 
     public DataModalClass() {}
 
-    public DataModalClass(String name, String brand, String price, String stock, String description, String category, String image) {
+    public DataModalClass(String name, String brand, String price, String stock, String description, String category, String image, String id) {
         this.name = name;
         this.brand = brand;
         this.price = price;
@@ -13,6 +15,7 @@ public class DataModalClass {
         this.description = description;
         this.category = category;
         this.image = image;
+        this.id = id;
     }
 
     public String getName() {
@@ -69,5 +72,13 @@ public class DataModalClass {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

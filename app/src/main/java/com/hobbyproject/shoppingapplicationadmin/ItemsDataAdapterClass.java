@@ -50,6 +50,7 @@ public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapter
                 intent.putExtra("stock", itemsList.get(position).getStock());
                 intent.putExtra("description", itemsList.get(position).getDescription());
                 intent.putExtra("category", itemsList.get(position).getCategory());
+                intent.putExtra("position", itemsList.get(position).getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 holder.view.getContext().startActivity(intent);
             }
