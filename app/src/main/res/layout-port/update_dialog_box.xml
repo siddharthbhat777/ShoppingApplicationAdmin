@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/gray"
+        app:strokeWidth="1dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_margin="16dp"
+        android:layout_centerInParent="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/updateDialogHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginVertical="16dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="Update Item Details" />
+
+                <EditText
+                    android:id="@+id/updateNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:hint="Enter item name"
+                    android:text=""
+                    android:layout_below="@+id/updateDialogHeading"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:id="@+id/updateBrandEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:hint="Enter item brand"
+                    android:text=""
+                    android:layout_below="@+id/updateNameEditText"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:id="@+id/updatePriceEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:hint="Enter item price"
+                    android:text=""
+                    android:layout_below="@+id/updateBrandEditText"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:id="@+id/updateStockEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:hint="Enter item stock"
+                    android:text=""
+                    android:layout_below="@+id/updatePriceEditText"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:id="@+id/updateDescriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:hint="Enter item description"
+                    android:text=""
+                    android:layout_below="@+id/updateStockEditText"
+                    android:layout_marginHorizontal="16dp"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:layout_centerHorizontal="true" />
+
+                <EditText
+                    android:id="@+id/updateCategoryEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:hint="Enter item category"
+                    android:text=""
+                    android:layout_below="@+id/updateDescriptionEditText"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_centerHorizontal="true" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="300dp"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    android:layout_below="@+id/updateCategoryEditText"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/editSubmitLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/light_yellow" >
+
+                            <ImageView
+                                android:id="@+id/editSubmitIconImageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/ic_edit" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cancelLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/light_red" >
+
+                            <ImageView
+                                android:id="@+id/cancelIconImageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                app:srcCompat="@drawable/ic_close" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".ItemDetailsActivity">
+
+    <ScrollView
+        android:id="@+id/verticalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/itemImageDetailImageView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:foreground="@drawable/detailed_item_image_gradient"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/itemTitleDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemImageDetailImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="8dp"
+                android:text="This is title"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemBrandDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemTitleDetailTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="8dp"
+                android:text="Brand name"
+                android:textColor="@color/orange"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemPriceDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemBrandDetailTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="8dp"
+                android:text="₹99999/-"
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemStockDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemPriceDetailTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="8dp"
+                android:text="In Stock (45)"
+                android:textColor="@color/green"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/itemDescriptionDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemStockDetailTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="8dp"
+                android:text="This is a description of the item which is a multiline description"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/itemCategoryDetailTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemDescriptionDetailTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="8dp"
+                android:text="Category: XYZ"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="60dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/updateDeleteButtons"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        app:cardCornerRadius="48dp"
+        android:layout_marginBottom="-60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/editLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/light_yellow" >
+
+                <ImageView
+                    android:id="@+id/editIconImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/deleteLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/light_red" >
+
+                <ImageView
+                    android:id="@+id/deleteIconImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    app:srcCompat="@drawable/ic_delete" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
