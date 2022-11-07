@@ -76,6 +76,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(ItemDetailsActivity.this, "Your item has been deleted!", Toast.LENGTH_SHORT).show();
                                     finish();
+                                    Intent intent = new Intent(ItemDetailsActivity.this, MainActivity.class);
+                                    startActivity(intent);
                                 }
                             });
                 }

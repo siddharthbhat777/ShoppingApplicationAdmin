@@ -1,5 +1,6 @@
 package com.hobbyproject.shoppingapplicationadmin;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -120,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
                         binding.itemDescriptionEditText.setText("");
                         binding.itemCategoryEditText.setText("");
                         Toast.makeText(MainActivity.this, "Item inserted successfully!", Toast.LENGTH_SHORT).show();
+                        finish();
+                        MainActivity.this.overridePendingTransition(R.anim.nothing,R.anim.nothing);
+                        startActivity(getIntent());
                     }
                 });
     }
