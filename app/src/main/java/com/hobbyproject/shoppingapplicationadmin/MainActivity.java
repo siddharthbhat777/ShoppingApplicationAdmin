@@ -1,5 +1,6 @@
 package com.hobbyproject.shoppingapplicationadmin;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -69,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 binding.addItemButtonCard.setVisibility(View.INVISIBLE);
                 Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation);
                 binding.addItemLayout.startAnimation(scale);
+                binding.addItemLayout.startAnimation(scale);
+                binding.addItemBg.setBackgroundColor(Color.parseColor("#59000000"));
             }
         });
 
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.addItemButtonCard.setVisibility(View.VISIBLE);
                 Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation_close);
                 binding.addItemLayout.startAnimation(scale);
+                binding.addItemBg.setBackgroundColor(Color.parseColor("#00000000"));
             }
         });
 
@@ -104,6 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
+                        binding.addItemLayout.setVisibility(View.INVISIBLE);
+                        binding.addItemButtonCard.setVisibility(View.VISIBLE);
+                        Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation_close);
+                        binding.addItemLayout.startAnimation(scale);
+                        binding.addItemBg.setBackgroundColor(Color.parseColor("#00000000"));
                         binding.itemTitleEditText.setText("");
                         binding.itemBrandEditText.setText("");
                         binding.itemPriceEditText.setText("");
