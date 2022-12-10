@@ -145,7 +145,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
                                     "brand", brand.getText().toString().trim(),
                                     "price", price.getText().toString().trim(),
                                     "stock", stock.getText().toString().trim(),
-                                    //"description", description.getText().toString().trim(),
+                                    "description", description.getText().toString().trim(),
                                     "category", category.getText().toString().trim()
                             )
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
