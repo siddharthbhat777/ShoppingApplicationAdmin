@@ -20,9 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.hobbyproject.shoppingapplicationadmin.databinding.ActivityItemDetailsBinding;
 import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ItemDetailsActivity extends AppCompatActivity {
 
     private ActivityItemDetailsBinding binding;
@@ -37,14 +34,16 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
+        String id = getIntent().getStringExtra("position");
         String itemName = getIntent().getStringExtra("name");
         String itemBrand = getIntent().getStringExtra("brand");
         String itemPrice = getIntent().getStringExtra("price");
         String itemStock = getIntent().getStringExtra("stock");
         String itemDescription = getIntent().getStringExtra("description");
         String itemCategory = getIntent().getStringExtra("category");
+        String image  = getIntent().getStringExtra("image");
 
-        Picasso.get().load(getIntent().getStringExtra("image")).into(binding.itemImageDetailImageView);
+        Picasso.get().load(image).into(binding.itemImageDetailImageView);
         binding.itemTitleDetailTextView.setText(itemName);
         binding.itemBrandDetailTextView.setText(itemBrand);
         binding.itemPriceDetailTextView.setText("₹" + itemPrice + "/-");
@@ -61,7 +60,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DeleteDialog dd = new DeleteDialog();
-                dd.showDialog(ItemDetailsActivity.this);
+                dd.showDialog(ItemDetailsActivity.this, id);
             }
         });
 
@@ -69,13 +68,13 @@ public class ItemDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 UpdateDialog ud = new UpdateDialog();
-                ud.showDialog(ItemDetailsActivity.this, itemName, itemBrand, itemPrice,itemStock,itemDescription, itemCategory);
+                ud.showDialog(ItemDetailsActivity.this, id, itemName, itemBrand, itemPrice,itemStock,itemDescription, itemCategory);
             }
         });
     }
 
     public class DeleteDialog {
-        public void showDialog(ItemDetailsActivity itemDetailsActivity) {
+        public void showDialog(ItemDetailsActivity itemDetailsActivity, String id) {
             final Dialog dialog = new Dialog(itemDetailsActivity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -88,7 +87,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
             yes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String id = getIntent().getStringExtra("position");
                     db.collection("items").document(id).delete()
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
@@ -112,7 +110,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
     }
 
     public class UpdateDialog {
-        public void showDialog(ItemDetailsActivity itemDetailsActivity, String itemName, String itemBrand, String itemPrice, String itemStock, String itemDescription, String itemCategory) {
+        public void showDialog(ItemDetailsActivity itemDetailsActivity, String id, String itemName, String itemBrand, String itemPrice, String itemStock, String itemDescription, String itemCategory) {
             final Dialog dialog = new Dialog(itemDetailsActivity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -139,7 +137,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
             yes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String id = getIntent().getStringExtra("position");
                     db.collection("items").document(id).update(
                                     "name", name.getText().toString().trim(),
                                     "brand", brand.getText().toString().trim(),
