@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     ItemsDataAdapterClass adapter;
     Uri uri;
     private ActivityMainBinding binding;
-    private int GALLARY_IMAGE_REQUEST=200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,15 +86,21 @@ public class MainActivity extends AppCompatActivity {
         binding.cancelLayoutButtonCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.addItemLayout.setVisibility(View.INVISIBLE);
+                binding.addItemButtonCard.setVisibility(View.VISIBLE);
+                Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation_close);
+                binding.addItemLayout.startAnimation(scale);
+                binding.addItemBg.setBackgroundColor(Color.parseColor("#00000000"));
+            }
+        });
+
+        binding.firebaseUploadImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select your image!"), 101);
-//                binding.addItemLayout.setVisibility(View.INVISIBLE);
-//                binding.addItemButtonCard.setVisibility(View.VISIBLE);
-//                Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation_close);
-//                binding.addItemLayout.startAnimation(scale);
-//                binding.addItemBg.setBackgroundColor(Color.parseColor("#00000000"));
             }
         });
 
@@ -108,17 +113,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addDataToDatabase(Uri uri) {
-
-        binding.addImageCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "CLICKED", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent();
-//                intent.setType("image/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(Intent.createChooser(intent, "Select your image!"), 101);
-            }
-        });
         if (uri != null) {
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference reference = storage.getReference().child( System.currentTimeMillis() + binding.itemTitleEditText.getText().toString() + ".jpg");
@@ -177,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
             uri = data.getData();
             try {
                 Picasso.get().load(uri).into(binding.firebaseUploadImageView);
-                addDataToDatabase(uri);
             } catch (Exception e) {
                 e.printStackTrace();
             }
