@@ -11,20 +11,16 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="8dp"
-        app:cardBackgroundColor="@color/black" >
+        app:cardBackgroundColor="@color/logo_bg" >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Shopify Shopping"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"
-                android:textColor="@color/white" />
+                android:layout_height="match_parent"
+                android:src="@drawable/shopify_logo"/>
 
             <ImageView
                 android:id="@+id/logoutButton"

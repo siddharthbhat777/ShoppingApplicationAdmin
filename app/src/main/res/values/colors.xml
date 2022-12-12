@@ -18,4 +18,5 @@
     <color name="light_yellow">#FFDC73</color>
     <color name="blue">#3F51B5</color>
     <color name="red">#FF0000</color>
+    <color name="logo_bg">#EDFBFC</color>
 </resources>

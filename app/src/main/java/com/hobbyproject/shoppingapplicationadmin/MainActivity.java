@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db;
     ArrayList<DataModalClass> itemsData;
     ItemsDataAdapterClass adapter;
+    CategoryAdapter categoryAdapter;
     Uri uri;
     FirebaseAuth auth;
     public static ArrayList<String> categoryList;
     public static ArrayList<String> uniqueCategoryList;
+    public static ArrayList<String> categories;
     private ActivityMainBinding binding;
 
     @Override
@@ -90,16 +94,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        binding.categoriesRecyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this, RecyclerView.HORIZONTAL, false));
+        categories = new ArrayList<>();
+        binding.categoriesRecyclerview.setHasFixedSize(true);
         db.collection("items").get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                                 List<DocumentSnapshot> itemList = queryDocumentSnapshots.getDocuments();
                                 categoryList = new ArrayList<>();
+                                categoryList.add("All");
                                 for (DocumentSnapshot documentSnapshot : itemList) {
                                     categoryList.add(documentSnapshot.getString("category"));
                                 }
-                                categoryUniqueConvert(categoryList);
+                                categories = categoryUniqueConvert(categoryList);
+                                categoryAdapter = new CategoryAdapter(categories);
+                                binding.categoriesRecyclerview.setAdapter(categoryAdapter);
                             }
                         });
 
@@ -172,8 +182,6 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Uri> task) {
                             String file_url = task.getResult().toString();
-
-
                             Map<String, Object> item = new HashMap<>();
                             item.put("image", file_url);
                             item.put("name", binding.itemTitleEditText.getText().toString().trim());
@@ -203,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
                                             finish();
                                             MainActivity.this.overridePendingTransition(R.anim.nothing, R.anim.nothing);
                                             startActivity(getIntent());
-
                                         }
                                     });
                         }
