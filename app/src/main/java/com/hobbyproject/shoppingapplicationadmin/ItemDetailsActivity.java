@@ -43,7 +43,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
         String itemCategory = getIntent().getStringExtra("category");
         String image  = getIntent().getStringExtra("image");
 
-        Picasso.get().load(image).into(binding.itemImageDetailImageView);
+        Picasso.get().load(image).placeholder(R.drawable.no_image_found).into(binding.itemImageDetailImageView);
         binding.itemTitleDetailTextView.setText(itemName);
         binding.itemBrandDetailTextView.setText(itemBrand);
         binding.itemPriceDetailTextView.setText("₹" + itemPrice + "/-");

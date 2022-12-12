@@ -30,7 +30,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/logo_bg"
         app:cardCornerRadius="64dp"
         app:cardElevation="8dp"
         app:contentPaddingBottom="10dp"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="+"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -276,7 +276,7 @@
                             android:id="@+id/addItemLayoutButtonCard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardBackgroundColor="@color/black"
+                            app:cardBackgroundColor="@color/logo_bg"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="8dp"
                             app:cardUseCompatPadding="true"
@@ -293,7 +293,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/transparent"
                                 android:text="ADD ITEM"
-                                android:textColor="@color/white"
+                                android:textColor="@color/black"
                                 android:textSize="20sp" />
 
                         </com.google.android.material.card.MaterialCardView>
@@ -302,7 +302,7 @@
                             android:id="@+id/cancelLayoutButtonCard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardBackgroundColor="@color/black"
+                            app:cardBackgroundColor="@color/logo_bg"
                             app:cardCornerRadius="16dp"
                             app:cardElevation="8dp"
                             app:cardUseCompatPadding="true"
@@ -319,7 +319,7 @@
                                 android:layout_height="wrap_content"
                                 android:background="@android:color/transparent"
                                 android:text="CANCEL"
-                                android:textColor="@color/white"
+                                android:textColor="@color/black"
                                 android:textSize="20sp" />
 
                         </com.google.android.material.card.MaterialCardView>

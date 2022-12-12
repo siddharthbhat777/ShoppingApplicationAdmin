@@ -40,7 +40,7 @@ public class LoginUserActivity extends AppCompatActivity {
             }
         });
 
-        binding.newUserLoginCardView.setOnClickListener(new View.OnClickListener() {
+        binding.newUserLoginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginUserActivity.this, RegisterUserActivity.class));

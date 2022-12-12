@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -32,14 +33,14 @@ public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapter
     @Override
     public void onBindViewHolder(@NonNull ItemsViewHolder holder, int position) {
         try {
-            Picasso.get().load(itemsList.get(position).getImage()).into(holder.itemImage);
+            Picasso.get().load(itemsList.get(position).getImage()).placeholder(R.drawable.no_image_found).into(holder.itemImage);
         } catch (Exception e) {
             e.printStackTrace();
         }
         holder.name.setText(itemsList.get(position).getName());
         holder.brand.setText(itemsList.get(position).getBrand());
         holder.price.setText("₹" + itemsList.get(position).getPrice() + "/-");
-        holder.view.setOnClickListener(new View.OnClickListener() {
+        holder.itemCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.view.getContext(), ItemDetailsActivity.class);
@@ -71,6 +72,7 @@ public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapter
         TextView name, brand, price;
         LinearLayout outOfStock;
         ImageView itemImage;
+        MaterialCardView itemCard;
         View view;
         public ItemsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +81,7 @@ public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapter
             price = itemView.findViewById(R.id.itemPriceTextView);
             outOfStock = itemView.findViewById(R.id.outOfStockLayout);
             itemImage = itemView.findViewById(R.id.itemImageView);
+            itemCard = itemView.findViewById(R.id.singleItemCardView);
             this.view = itemView;
         }
     }
