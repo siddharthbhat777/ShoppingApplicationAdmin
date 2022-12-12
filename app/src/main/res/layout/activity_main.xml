@@ -37,7 +37,7 @@
         app:contentPaddingLeft="18dp"
         app:contentPaddingRight="18dp"
         app:contentPaddingTop="10dp"
-        app:rippleColor="@color/black"
+        app:rippleColor="@color/ripple_color"
         app:strokeColor="@color/white"
         app:strokeWidth="2dp">
 
@@ -105,6 +105,7 @@
                         android:layout_centerHorizontal="true"
                         android:clickable="true"
                         android:focusable="true"
+                        app:rippleColor="@color/ripple_color"
                         app:cardCornerRadius="32dp"
                         app:strokeColor="@color/black"
                         app:strokeWidth="2dp">
@@ -284,7 +285,7 @@
                             app:contentPaddingLeft="20dp"
                             app:contentPaddingRight="20dp"
                             app:contentPaddingTop="10dp"
-                            app:rippleColor="@color/black"
+                            app:rippleColor="@color/ripple_color"
                             app:strokeColor="@color/white"
                             app:strokeWidth="2dp">
 
@@ -310,7 +311,7 @@
                             app:contentPaddingLeft="20dp"
                             app:contentPaddingRight="20dp"
                             app:contentPaddingTop="10dp"
-                            app:rippleColor="@color/black"
+                            app:rippleColor="@color/ripple_color"
                             app:strokeColor="@color/white"
                             app:strokeWidth="2dp">
 

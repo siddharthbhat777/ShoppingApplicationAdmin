@@ -73,7 +73,7 @@
             app:contentPaddingLeft="20dp"
             app:contentPaddingRight="20dp"
             app:contentPaddingTop="10dp"
-            app:rippleColor="@color/black"
+            app:rippleColor="@color/ripple_color"
             app:strokeColor="@color/white"
             app:strokeWidth="2dp">
 

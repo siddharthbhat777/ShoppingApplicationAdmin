@@ -15,6 +15,7 @@
         android:layout_margin="8dp"
         app:cardElevation="8dp"
         app:cardCornerRadius="16dp"
+        app:rippleColor="@color/ripple_color"
         app:strokeColor="@color/cardview_dark_background"
         app:strokeWidth="2dp">
 

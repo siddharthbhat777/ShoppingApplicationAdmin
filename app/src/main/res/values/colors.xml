@@ -19,4 +19,5 @@
     <color name="blue">#3F51B5</color>
     <color name="red">#FF0000</color>
     <color name="logo_bg">#EDFBFC</color>
+    <color name="ripple_color">#B3373737</color>
 </resources>
