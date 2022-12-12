@@ -33,7 +33,7 @@
         android:gravity="center" />
 
     <EditText
-        android:id="@+id/passwordRegisterId"
+        android:id="@+id/passwordLoginId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -48,7 +48,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordRegisterId"
+        android:layout_below="@+id/passwordLoginId"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="vertical">
