@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     ItemsDataAdapterClass adapter;
     Uri uri;
     FirebaseAuth auth;
+    public static ArrayList<String> categoryList;
+    public static ArrayList<String> uniqueCategoryList;
     private ActivityMainBinding binding;
 
     @Override
@@ -87,6 +90,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        db.collection("items").get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                List<DocumentSnapshot> itemList = queryDocumentSnapshots.getDocuments();
+                                categoryList = new ArrayList<>();
+                                for (DocumentSnapshot documentSnapshot : itemList) {
+                                    categoryList.add(documentSnapshot.getString("category"));
+                                }
+                                categoryUniqueConvert(categoryList);
+                            }
+                        });
+
         binding.addItemButtonCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,6 +142,23 @@ public class MainActivity extends AppCompatActivity {
                 addDataToDatabase(uri);
             }
         });
+    }
+
+    //list of categories
+    private ArrayList<String> categoryUniqueConvert(ArrayList<String> categoryList) {
+        HashMap<String, Integer> uniqueCategory = new HashMap<>();
+        for (int i = 0; i < categoryList.size(); i++) {
+            if (uniqueCategory.containsKey(categoryList.get(i))) {
+                uniqueCategory.put(categoryList.get(i), uniqueCategory.get(categoryList.get(i)));
+            } else {
+                uniqueCategory.put(categoryList.get(i), 1);
+            }
+        }
+        uniqueCategoryList = new ArrayList<>();
+        for (Map.Entry<String, Integer> map : uniqueCategory.entrySet()) {
+            uniqueCategoryList.add(map.getKey());
+        }
+        return uniqueCategoryList;
     }
 
     public void addDataToDatabase(Uri uri) {
