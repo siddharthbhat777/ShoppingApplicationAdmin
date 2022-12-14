@@ -244,6 +244,63 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
             });
+        } else {
+            String itemName = binding.itemTitleEditText.getText().toString().trim();
+            String itemBrand = binding.itemBrandEditText.getText().toString().trim();
+            String itemPrice = binding.itemPriceEditText.getText().toString().trim();
+            String itemStock = binding.itemStockEditText.getText().toString().trim();
+            String itemDescription = binding.itemDescriptionEditText.getText().toString().trim();
+            String itemCategory = binding.itemCategoryEditText.getText().toString().trim();
+            Map<String, Object> item = new HashMap<>();
+            item.put("name", itemName);
+            item.put("brand", itemBrand);
+            item.put("price", itemPrice);
+            item.put("stock", itemStock);
+            item.put("description", itemDescription);
+            item.put("category", itemCategory);
+            item.put("date", FieldValue.serverTimestamp());
+
+            if (TextUtils.isEmpty(itemName)) {
+                binding.itemTitleEditText.setError("Please enter product name.");
+                binding.itemTitleEditText.requestFocus();
+            } else if (TextUtils.isEmpty(itemBrand)) {
+                binding.itemBrandEditText.setError("Please enter product brand name.");
+                binding.itemBrandEditText.requestFocus();
+            } else if (TextUtils.isEmpty(itemPrice) || !TextUtils.isDigitsOnly(itemPrice)) {
+                binding.itemPriceEditText.setError("Please enter valid product price.");
+                binding.itemPriceEditText.requestFocus();
+            } else if (TextUtils.isEmpty(itemStock) || !TextUtils.isDigitsOnly(itemStock)) {
+                binding.itemStockEditText.setError("Please enter valid product stock.");
+                binding.itemStockEditText.requestFocus();
+            } else if (TextUtils.isEmpty(itemDescription)) {
+                binding.itemDescriptionEditText.setError("Please enter product description.");
+                binding.itemDescriptionEditText.requestFocus();
+            } else if (TextUtils.isEmpty(itemCategory)) {
+                binding.itemCategoryEditText.setError("Please enter product category.");
+                binding.itemCategoryEditText.requestFocus();
+            } else {
+                db.collection("items").add(item)
+                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                binding.addItemLayout.setVisibility(View.INVISIBLE);
+                                binding.addItemButtonCard.setVisibility(View.VISIBLE);
+                                Animation scale = AnimationUtils.loadAnimation(MainActivity.this, R.anim.add_item_card_layout_animation_close);
+                                binding.addItemLayout.startAnimation(scale);
+                                binding.addItemBg.setBackgroundColor(Color.parseColor("#00000000"));
+                                binding.itemTitleEditText.setText("");
+                                binding.itemBrandEditText.setText("");
+                                binding.itemPriceEditText.setText("");
+                                binding.itemStockEditText.setText("");
+                                binding.itemDescriptionEditText.setText("");
+                                binding.itemCategoryEditText.setText("");
+                                Toast.makeText(MainActivity.this, "Item inserted successfully!", Toast.LENGTH_SHORT).show();
+                                finish();
+                                MainActivity.this.overridePendingTransition(R.anim.nothing, R.anim.nothing);
+                                startActivity(getIntent());
+                            }
+                        });
+            }
         }
     }
 
