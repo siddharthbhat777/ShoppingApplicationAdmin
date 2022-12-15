@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -151,7 +152,6 @@ public class MainActivity extends AppCompatActivity implements CategoryClickInte
         });
     }
 
-    //list of categories
     private ArrayList<String> categoryUniqueConvert(ArrayList<String> categoryList) {
         HashMap<String, Integer> uniqueCategory = new HashMap<>();
         for (int i = 0; i < categoryList.size(); i++) {
@@ -352,6 +352,15 @@ public class MainActivity extends AppCompatActivity implements CategoryClickInte
                             adapter.notifyDataSetChanged();
                         }
                     });
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = auth.getCurrentUser();
+        if (user == null) {
+            startActivity(new Intent(MainActivity.this, LoginUserActivity.class));
         }
     }
 }
