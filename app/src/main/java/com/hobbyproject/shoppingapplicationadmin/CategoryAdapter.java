@@ -4,20 +4,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.card.MaterialCardView;
-
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     ArrayList<String> categories;
+    int selectedPosition = 0;
+    CategoryClickInterface itemClick;
 
-    public CategoryAdapter(ArrayList<String> categories) {
+    public CategoryAdapter(ArrayList<String> categories, CategoryClickInterface itemClick) {
         this.categories = categories;
+        this.itemClick = itemClick;
+        this.notifyDataSetChanged();
     }
 
     @NonNull
@@ -30,6 +31,22 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.CategoryViewHolder holder, int position) {
         holder.textView.setText(categories.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedPosition = position;
+                itemClick.onCategoryClick(position, categories.get(position));
+                notifyDataSetChanged();
+            }
+        });
+
+        if (selectedPosition != position) {
+            holder.cardView.setCardBackgroundColor(holder.cardView.getContext().getResources().getColor(R.color.category_color));
+            holder.textView.setTextColor(holder.textView.getContext().getResources().getColor(R.color.white));
+        } else {
+            holder.cardView.setCardBackgroundColor(holder.cardView.getContext().getResources().getColor(R.color.logo_bg));
+            holder.textView.setTextColor(holder.textView.getContext().getResources().getColor(R.color.black));
+        }
     }
 
     @Override

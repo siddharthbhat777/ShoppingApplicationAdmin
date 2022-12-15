@@ -10,14 +10,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -33,13 +31,12 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hobbyproject.shoppingapplicationadmin.databinding.ActivityMainBinding;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CategoryClickInterface {
 
     FirebaseFirestore db;
     ArrayList<DataModalClass> itemsData;
@@ -108,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                                     categoryList.add(documentSnapshot.getString("category"));
                                 }
                                 categories = categoryUniqueConvert(categoryList);
-                                categoryAdapter = new CategoryAdapter(categories);
+                                categoryAdapter = new CategoryAdapter(categories,MainActivity.this);
                                 binding.categoriesRecyclerview.setAdapter(categoryAdapter);
                             }
                         });
@@ -313,6 +310,48 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public void onCategoryClick(int position, String name) {
+        if (name.equals("All")){
+
+            binding.itemsDisplayRecyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+            itemsData = new ArrayList<>();
+            adapter = new ItemsDataAdapterClass(itemsData);
+            binding.itemsDisplayRecyclerView.setAdapter(adapter);
+            db.collection("items").orderBy("date", Query.Direction.DESCENDING).get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            List<DocumentSnapshot> itemsList = queryDocumentSnapshots.getDocuments();
+                            for (DocumentSnapshot documentSnapshot : itemsList) {
+                                DataModalClass dataModalClass = documentSnapshot.toObject(DataModalClass.class);
+                                dataModalClass.setId(documentSnapshot.getId());
+                                itemsData.add(dataModalClass);
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+        }else{
+            binding.itemsDisplayRecyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+            itemsData = new ArrayList<>();
+            adapter = new ItemsDataAdapterClass(itemsData);
+            binding.itemsDisplayRecyclerView.setAdapter(adapter);
+            db.collection("items").whereEqualTo("category",name).get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            List<DocumentSnapshot> itemsList = queryDocumentSnapshots.getDocuments();
+                            for (DocumentSnapshot documentSnapshot : itemsList) {
+                                DataModalClass dataModalClass = documentSnapshot.toObject(DataModalClass.class);
+                                dataModalClass.setId(documentSnapshot.getId());
+                                itemsData.add(dataModalClass);
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
         }
     }
 }

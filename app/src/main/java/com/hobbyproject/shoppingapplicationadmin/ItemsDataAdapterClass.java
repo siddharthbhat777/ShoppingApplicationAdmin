@@ -7,13 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.card.MaterialCardView;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 public class ItemsDataAdapterClass extends RecyclerView.Adapter<ItemsDataAdapterClass.ItemsViewHolder> {
