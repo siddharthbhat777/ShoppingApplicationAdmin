@@ -22,4 +22,5 @@
     <color name="ripple_color">#B3373737</color>
     <color name="category_color">#0F1B5C</color>
     <color name="category_border_color">#737EBA</color>
+    <color name="app_icon_bg">#B3E0FF</color>
 </resources>
